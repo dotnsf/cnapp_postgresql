@@ -73,6 +73,7 @@ api.createItem = function( item ){
               console.log( err );
               resolve( { status: false, error: err } );
             }else{
+              console.log( { result } );
               resolve( { status: true, result: result } );
             }
           });
