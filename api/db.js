@@ -67,6 +67,9 @@ api.createItem = function( item ){
           var t = ( new Date() ).getTime();
           item.created = t;
           item.updated = t;
+          if( typeof item.price == 'string' ){
+            item.price = parseInt( item.price );
+          }
           console.log( item );
           conn.query( item, function( err, result ){
             if( err ){
