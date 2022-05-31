@@ -152,7 +152,7 @@ api.readItems = function( limit, offset ){
               console.log( err );
               resolve( { status: false, error: err } );
             }else{
-              resolve( { status: true, results: results } );
+              resolve( { status: true, results: results.rows } );
             }
           });
         }catch( e ){
