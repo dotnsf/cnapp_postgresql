@@ -54,7 +54,7 @@ api.use( express.Router() );
 
 //. Create
 api.createItem = function( item ){
-  return new Promise( ( resolve, reject ) => {
+  return new Promise( async ( resolve, reject ) => {
     if( pg ){
       conn = await pg.connect();
       if( conn ){
@@ -95,7 +95,7 @@ api.createItem = function( item ){
 
 //. Read
 api.readItem = function( item_id ){
-  return new Promise( ( resolve, reject ) => {
+  return new Promise( async ( resolve, reject ) => {
     if( pg ){
       conn = await pg.connect();
       if( conn ){
@@ -132,7 +132,7 @@ api.readItem = function( item_id ){
 
 //. Reads
 api.readItems = function( limit, offset ){
-  return new Promise( ( resolve, reject ) => {
+  return new Promise( async ( resolve, reject ) => {
     if( pg ){
       conn = await pg.connect();
       if( conn ){
@@ -171,7 +171,7 @@ api.readItems = function( limit, offset ){
 
 //. Update
 api.updateItem = function( item ){
-  return new Promise( ( resolve, reject ) => {
+  return new Promise( async ( resolve, reject ) => {
     if( pg ){
       conn = await pg.connect();
       if( conn ){
@@ -214,7 +214,7 @@ api.updateItem = function( item ){
 
 //. Delete
 api.deleteItem = function( item_id ){
-  return new Promise( ( resolve, reject ) => {
+  return new Promise( async ( resolve, reject ) => {
     if( pg ){
       conn = await pg.connect();
       if( conn ){
