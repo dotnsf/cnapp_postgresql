@@ -59,8 +59,6 @@ api.createItem = function( item ){
       conn = await pg.connect();
       if( conn ){
         try{
-          var sql = 'insert into items set ?';
-          //var sql = "select * from items";
           if( !item.id ){
             item.id = uuidv1();
           }
@@ -71,7 +69,9 @@ api.createItem = function( item ){
             item.price = parseInt( item.price );
           }
           console.log( item );
-          conn.query( item, function( err, result ){
+          var sql = 'insert into items( id, name, price, created, updated ) values ( $1, $2, $3, $4, $5 )';
+          var query = { text: sql, values: [ item.id, item.name, item.price, item.created, item.updated ] };
+          conn.query( query, function( err, result ){
             if( err ){
               console.log( err );
               resolve( { status: false, error: err } );
