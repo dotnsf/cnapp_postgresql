@@ -222,8 +222,9 @@ api.deleteItem = function( item_id ){
       conn = await pg.connect();
       if( conn ){
         try{
-          var sql = "delete from items where id = ?";
-          conn.query( sql, [ item_id ], function( err, result ){
+          var sql = "delete from items where id = $1";
+          var query = { text: sql, values: [ item_id ] };
+          conn.query( query, function( err, result ){
             if( err ){
               console.log( err );
               resolve( { status: false, error: err } );

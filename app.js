@@ -17,7 +17,6 @@ app.set( 'view engine', 'ejs' );
 
 app.get( '/', async function( req, res ){
   var result = await db.readItems();
-  console.log( { result } );
   if( result.status ){
     res.render( 'index', { items: result.results } );
   }else{
