@@ -68,7 +68,7 @@ api.createItem = function( item ){
           if( typeof item.price == 'string' ){
             item.price = parseInt( item.price );
           }
-          console.log( item );
+          //console.log( item );
           var sql = 'insert into items( id, name, price, created, updated ) values ( $1, $2, $3, $4, $5 )';
           var query = { text: sql, values: [ item.id, item.name, item.price, item.created, item.updated ] };
           conn.query( query, function( err, result ){
@@ -76,7 +76,6 @@ api.createItem = function( item ){
               console.log( err );
               resolve( { status: false, error: err } );
             }else{
-              console.log( { result } );
               resolve( { status: true, result: result } );
             }
           });

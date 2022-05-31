@@ -29,7 +29,7 @@ function createItem(){
   var name = $('#name0').val();
   var price = parseInt( $('#price0').val() );
   var data = { name: name, price: price };
-  alert( JSON.stringify( data ) );
+  //alert( JSON.stringify( data ) );
   $.ajax({
     type: 'POST',
     url: '/api/db/item',
