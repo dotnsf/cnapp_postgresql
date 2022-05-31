@@ -68,7 +68,7 @@ api.createItem = function( item ){
           item.created = t;
           item.updated = t;
           console.log( item );
-          conn.query( query, function( err, result ){
+          conn.query( item, function( err, result ){
             if( err ){
               console.log( err );
               resolve( { status: false, error: err } );
